@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "frontend": {
+    "starwars-ui": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -26,7 +26,13 @@
             "assets": [
               {
                 "glob": "**/*",
-                "input": "public"
+                "input": "src/assets",
+                "output": "assets"
+              },
+              {
+                "glob": "**/*",
+                "input": "public",
+                "output": ""
               }
             ],
             "styles": [
@@ -59,12 +65,15 @@
         },
         "serve": {
           "builder": "@angular/build:dev-server",
+          "options": {
+            "proxyConfig": "proxy.conf.json"
+          },
           "configurations": {
             "production": {
-              "buildTarget": "frontend:build:production"
+              "buildTarget": "starwars-ui:build:production"
             },
             "development": {
-              "buildTarget": "frontend:build:development"
+              "buildTarget": "starwars-ui:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -84,7 +93,13 @@
             "assets": [
               {
                 "glob": "**/*",
-                "input": "public"
+                "input": "src/assets",
+                "output": "assets"
+              },
+              {
+                "glob": "**/*",
+                "input": "public",
+                "output": ""
               }
             ],
             "styles": [
@@ -94,5 +109,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "cbf7f500-03cf-4c76-a631-bdb908d6af56"
   }
 }
