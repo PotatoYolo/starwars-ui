@@ -3,12 +3,14 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Page } from '../models/page.model';
 import { Planet } from '../models/planet.model';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PlanetsService {
-  private apiUrl = 'http://localhost:8080/api/planets';
+
+  private apiUrl = `${environment.apiUrl}/planets`;
 
   constructor(private http: HttpClient) {}
 
